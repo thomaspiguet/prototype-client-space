@@ -450,17 +450,18 @@
 <style>
     .custom-cursor {
         position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: red;
-        border-radius: 50%;
+        width: 32px; /* Adjust size as needed */
+        height: 32px;
+        background: url("https://thomaspiguet.github.io/prototype-client-space/dist/img/pointer.svg") no-repeat center;
+        background-size: contain;
         pointer-events: none;
         transition: left 0.3s ease, top 0.3s ease;
+        z-index: 10000; /* Ensure it's above other elements */
     }
 
     /* Unique hover effects for each element */
     .element1-hover {
-        background-color: lightblue !important;
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
         transition: background-color 0.3s ease;
     }
 
