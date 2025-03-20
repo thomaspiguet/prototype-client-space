@@ -98,7 +98,7 @@
 
                     <li class="nav-item dropdown user user-menu">
 
-                        <a aria-expanded="false" class="dropdown-toggle nav-link js-scroll-trigger" data-toggle="dropdown"
+                        <a aria-expanded="false" class="dropdown-toggle nav-link js-scroll-trigger element1" data-toggle="dropdown"
                            href="#">
                             <span class="hidden-xs">
                                 VOTRE COMPTE
@@ -209,7 +209,7 @@
 
 
                                 <div class="">
-                                    <button type="button" data-widget="collapse" class="account-creation-btn account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile">
+                                    <button type="button" data-widget="collapse" class="account-creation-btn account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile el" >
                                         <span class="account-creation-btn">Créer votre compte</span>
                                     </button>
                                 </div>
@@ -385,6 +385,66 @@
         });
 
     </script>
+
+
+
+
+
+<script>
+    // List of element classes to be hovered and clicked in order
+    const elementClicks = [
+        "element1", 
+        "element2",
+        "element3", 
+        "page-top"
+    ];
+
+    const customCursor = document.querySelector(".custom-cursor"); // Fake cursor
+
+    // Function to move the custom cursor
+    function moveCursorToElement(element, callback) {
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            const cursorX = rect.left + rect.width / 2; // Center X
+            const cursorY = rect.top + rect.height / 2; // Center Y
+
+            // Move the custom cursor with a delay
+            customCursor.style.left = `${cursorX}px`;
+            customCursor.style.top = `${cursorY}px`;
+
+            // Wait for the cursor to reach before triggering click
+            setTimeout(() => {
+                element.classList.add("hover-effect");
+                setTimeout(() => {
+                    element.classList.remove("hover-effect");
+                    element.click();
+                    callback(); // Continue to next step
+                }, 500); // Hover for 500ms before clicking
+            }, 300); // Cursor move delay
+        } else {
+            callback(); // Skip if element not found
+        }
+    }
+
+    // Function to start auto-hover and clicking
+    function autoHoverAndClick(index = 0) {
+        if (index < elementClicks.length) {
+            const element = document.querySelector(`.${elementClicks[index]}`);
+            moveCursorToElement(element, () => {
+                setTimeout(() => autoHoverAndClick(index + 1), 1900);
+            });
+        } else {
+            // Refresh the page after 3-second delay
+            setTimeout(() => location.reload(), 3000);
+        }
+    }
+
+    // Start hovering and clicking after a short delay
+    setTimeout(() => autoHoverAndClick(), 1900);
+</script>
+
+
+
 
 </body>
 
