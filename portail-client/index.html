@@ -209,7 +209,7 @@
 
 
                                 <div class="">
-                                    <button type="button" data-widget="collapse" class="account-creation-btn account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile el" >
+                                    <button type="button" data-widget="collapse" class="account-creation-btn account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile element2" >
                                         <span class="account-creation-btn">Créer votre compte</span>
                                     </button>
                                 </div>
@@ -389,6 +389,7 @@
 
 
 
+<div class="custom-cursor"></div> <!-- Fake Cursor -->
 
 <script>
     // List of element classes to be hovered and clicked in order
@@ -402,7 +403,7 @@
     const customCursor = document.querySelector(".custom-cursor"); // Fake cursor
 
     // Function to move the custom cursor
-    function moveCursorToElement(element, callback) {
+    function moveCursorToElement(element, elementClass, callback) {
         if (element) {
             const rect = element.getBoundingClientRect();
             const cursorX = rect.left + rect.width / 2; // Center X
@@ -412,11 +413,11 @@
             customCursor.style.left = `${cursorX}px`;
             customCursor.style.top = `${cursorY}px`;
 
-            // Wait for the cursor to reach before triggering click
+            // Hover effect applied
             setTimeout(() => {
-                element.classList.add("hover-effect");
+                element.classList.add(`${elementClass}-hover`); // Add specific hover class
                 setTimeout(() => {
-                    element.classList.remove("hover-effect");
+                    element.classList.remove(`${elementClass}-hover`); // Remove hover effect
                     element.click();
                     callback(); // Continue to next step
                 }, 500); // Hover for 500ms before clicking
@@ -429,12 +430,18 @@
     // Function to start auto-hover and clicking
     function autoHoverAndClick(index = 0) {
         if (index < elementClicks.length) {
-            const element = document.querySelector(`.${elementClicks[index]}`);
-            moveCursorToElement(element, () => {
-                setTimeout(() => autoHoverAndClick(index + 1), 1900);
-            });
+            const elementClass = elementClicks[index];
+            const element = document.querySelector(`.${elementClass}`);
+            if (element) {
+                moveCursorToElement(element, elementClass, () => {
+                    setTimeout(() => autoHoverAndClick(index + 1), 1900);
+                });
+            } else {
+                // Skip if element not found and continue
+                setTimeout(() => autoHoverAndClick(index + 1), 500);
+            }
         } else {
-            // Refresh the page after 3-second delay
+            // Refresh the page after a 3-second delay
             setTimeout(() => location.reload(), 3000);
         }
     }
@@ -443,6 +450,38 @@
     setTimeout(() => autoHoverAndClick(), 1900);
 </script>
 
+<style>
+    .custom-cursor {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: left 0.3s ease, top 0.3s ease;
+    }
+
+    /* Unique hover effects for each element */
+    .element1-hover {
+        background-color: lightblue !important;
+        transition: background-color 0.3s ease;
+    }
+
+    .element2-hover {
+        background-color: lightgreen !important;
+        transition: background-color 0.3s ease;
+    }
+
+    .element3-hover {
+        background-color: orange !important;
+        transition: background-color 0.3s ease;
+    }
+
+    .page-top-hover {
+        background-color: pink !important;
+        transition: background-color 0.3s ease;
+    }
+</style>
 
 
 
