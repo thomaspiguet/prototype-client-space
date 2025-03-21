@@ -437,6 +437,11 @@ body body .navbar-nav > .user-menu > .dropdown-menu .user-body, body body .navba
 .navbar {
   padding: 12px;
 }
+@media (max-width: 768px) {
+  .navbar {
+    padding: 23px;
+  }
+}
 
 #mainNav .navbar-toggler {
   font-size: 20px !important;

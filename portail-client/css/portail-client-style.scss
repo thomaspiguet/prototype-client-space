@@ -187,6 +187,9 @@ body {
 
     .navbar {
         padding: 12px;
+        @media (max-width: 768px) {
+        padding: 23px;
+     }
     }
 
     #mainNav .navbar-toggler {
