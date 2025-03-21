@@ -285,16 +285,21 @@ body {
         -o-background-size: cover;
         background-size: cover;
         @media (max-width: 768px) {
+                 background-image: url(../img/bg-01-mobile.jpg);
                 background-attachment: scroll;
                 background-position: bottom right;
                 background-size: cover;
-                height: 675px;;     
+                height: 800px;;     
         } 
     }
 
     header.banner .intro-text {
         padding-top: 75%;
         padding-bottom: 5px;
+        @media (max-width: 768px) {
+            padding-top: 135%;
+            padding-bottom: 6px;
+         }
     }
 
     header.banner .intro-text second_banner {
