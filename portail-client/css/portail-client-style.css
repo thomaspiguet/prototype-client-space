@@ -531,7 +531,7 @@ header.banner {
     background-attachment: scroll;
     background-position: bottom right;
     background-size: cover;
-    height: 800px;
+    height: 775px;
   }
 }
 
@@ -563,6 +563,11 @@ header.banner .intro-text .intro-lead-in {
 .service-heading {
   margin: 20px 5px;
   text-transform: none;
+}
+@media (max-width: 768px) {
+  .service-heading {
+    margin: 17px 5px;
+  }
 }
 
 .intro-heading {

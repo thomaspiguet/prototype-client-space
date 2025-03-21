@@ -292,7 +292,7 @@ body {
                 background-attachment: scroll;
                 background-position: bottom right;
                 background-size: cover;
-                height: 800px;;     
+                height: 775px;;     
         } 
     }
 
@@ -322,6 +322,9 @@ body {
     .service-heading {
         margin: 20px 5px;
         text-transform: none;
+        @media (max-width: 768px) {
+            margin: 17px 5px;        
+         }     
     }
 
     .intro-heading {
