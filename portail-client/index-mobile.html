@@ -404,7 +404,6 @@
 
     </script>
 
-
 <div class="cursor-element"></div> <!-- Fake Cursor -->
 
 <script>
@@ -469,6 +468,9 @@
             }
         } else {
             console.log("Auto-hover and clicking sequence completed.");
+            setTimeout(() => {
+                location.reload(); // Refresh the page after 3 seconds
+            }, 3000);
         }
     }
 
