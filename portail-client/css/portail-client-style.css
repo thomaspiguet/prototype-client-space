@@ -517,6 +517,11 @@ body body .navbar-nav > .user-menu > .dropdown-menu .user-body, body body .navba
     padding: 12px 0;
   }
 }
+.nav-link:focus-visible {
+  outline: 0;
+  box-shadow: none !important;
+}
+
 header.banner {
   text-align: center;
   color: white;
