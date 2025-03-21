@@ -440,6 +440,7 @@ body body .navbar-nav > .user-menu > .dropdown-menu .user-body, body body .navba
 @media (max-width: 768px) {
   .navbar {
     padding: 23px;
+    filter: drop-shadow(5px 5px 10px #cbcbcb);
   }
 }
 
