@@ -405,9 +405,7 @@
     </script>
 
 
-
-
-<div class="custom-cursor"></div> <!-- Fake Cursor -->
+<div class="cursor-element"></div> <!-- Fake Cursor -->
 
 <script>
     // List of element classes to be hovered and clicked in order
@@ -418,18 +416,18 @@
         "page-top0"
     ];
 
-    const customCursor = document.querySelector(".custom-cursor"); // Fake cursor
+    const cursorElement = document.querySelector(".cursor-element"); // Fake cursor
 
-    // Function to move the custom cursor
+    // Function to move the cursor
     function moveCursorToElement(element, elementClass, callback) {
         if (element) {
             const rect = element.getBoundingClientRect();
             const cursorX = rect.left + window.scrollX + rect.width / 2; // Center X (account for scrolling)
             const cursorY = rect.top + window.scrollY + rect.height / 2; // Center Y
 
-            // Move the custom cursor with a delay
-            customCursor.style.left = `${cursorX}px`;
-            customCursor.style.top = `${cursorY}px`;
+            // Move the cursor with a delay
+            cursorElement.style.left = `${cursorX}px`;
+            cursorElement.style.top = `${cursorY}px`;
 
             // Hover effect applied
             setTimeout(() => {
@@ -479,7 +477,7 @@
 </script>
 
 <style>
-    .custom-cursor {
+    .cursor-element {
         position: absolute;
         width: 32px; /* Adjust size as needed */
         height: 32px;
@@ -507,6 +505,7 @@
         background-color: #00a59e !important;
     }
 </style>
+
 
 
 
