@@ -143,14 +143,13 @@ body {
         justify-content: space-between;
 
         @media (min-width: 768px) {
-         .container-md {
+         .container {
                 max-width: 100%;
                 }
         }
     }
 
-    .navbar-nav > .user-menu > .dropdown-menu {
-        .user-body, .user-header, .user-footer {
+    body .navbar-nav > .user-menu > .dropdown-menu .user-body, body .navbar-nav > .user-menu > .dropdown-menu .user-header, body .navbar-nav > .user-menu > .dropdown-menu .user-footer {
             padding: 10px;
             border-radius: 0px;
             background-color: #fff;
@@ -505,7 +504,7 @@ body {
     input {
         border: 1px solid $border;
     }
-}
+
 
 table.dataTable tbody th, table.dataTable tbody td {
     padding: 23px 11px;

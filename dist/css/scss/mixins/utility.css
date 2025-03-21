@@ -123,6 +123,12 @@ $font_4: 'sans-serif';*/
   border-top: 1px solid #cfd8dc;
 }
 
+@media (min-width: 768px) {
+  .no-border-md {
+    border: 0px !important;
+  }
+}
+
 .no-background {
   background: transparent;
 }

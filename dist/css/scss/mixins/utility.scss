@@ -91,6 +91,12 @@
     border-top: 1px solid $border;
 }
 
+.no-border-md {
+    @media (min-width: 768px) {
+    border: 0px!important;        
+    }   
+}
+
 .no-background {
     background: transparent;
 }
