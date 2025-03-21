@@ -98,7 +98,7 @@
                 </a>
             </div>
 
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right element1" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
 
@@ -116,7 +116,7 @@
 
                     <li class="nav-item dropdown user user-menu">
 
-                        <a aria-expanded="false" class="dropdown-toggle nav-link js-scroll-trigger element" data-toggle="dropdown"
+                        <a aria-expanded="false" class="dropdown-toggle nav-link js-scroll-trigger element2" data-toggle="dropdown"
                            href="#">
                             <span class="hidden-xs">
                                 VOTRE COMPTE
@@ -227,7 +227,7 @@
 
 
                                 <div class="">
-                                    <button type="button" data-widget="collapse" class="account-creation-btn account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile element" >
+                                    <button type="button" data-widget="collapse" class="account-creation-btn account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile element3" >
                                         <span class="account-creation-btn">Créer votre compte</span>
                                     </button>
                                 </div>
@@ -281,7 +281,7 @@
                 <div class="col-md-6 bg-sub-brand-light-blue boxing d-grid gap-2 d-md-block p-4">
                     <h2 class="service-heading">M’inscrire à Espace Client</h2>
 
-                    <button type="button" onclick="window.location.href='index-login.html'" class="btn btn-success bg-green-disabled element1" >ME CONNECTER<i class="fa fa-angle-right"></i> </button>
+                    <button type="button" onclick="window.location.href='index-login.html'" class="btn btn-success bg-green-disabled" >ME CONNECTER<i class="fa fa-angle-right"></i> </button>
 
                     <button type="button" onclick="window.location.href='index-login.html'" class="btn btn-success bg-green-disabled">CRÉER MON ESPACE CLIENT<i class="fa fa-angle-right"></i> </button>
 
@@ -405,6 +405,104 @@
     </script>
 
 
+
+
+
+
+<div class="custom-cursor"></div> <!-- Fake Cursor -->
+
+<script>
+    // List of element classes to be hovered and clicked in order
+    const elementClicks = [
+        "element1", 
+        "element2",
+        "element3", 
+        "page-top"
+    ];
+
+    const customCursor = document.querySelector(".custom-cursor"); // Fake cursor
+
+    // Function to move the custom cursor
+    function moveCursorToElement(element, elementClass, callback) {
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            const cursorX = rect.left + rect.width / 2; // Center X
+            const cursorY = rect.top + rect.height / 2; // Center Y
+
+            // Move the custom cursor with a delay
+            customCursor.style.left = `${cursorX}px`;
+            customCursor.style.top = `${cursorY}px`;
+
+            // Hover effect applied
+            setTimeout(() => {
+                element.classList.add(`${elementClass}-hover`); // Add specific hover class
+                setTimeout(() => {
+                    element.classList.remove(`${elementClass}-hover`); // Remove hover effect
+                    element.click();
+                    callback(); // Continue to next step
+                }, 500); // Hover for 500ms before clicking
+            }, 300); // Cursor move delay
+        } else {
+            callback(); // Skip if element not found
+        }
+    }
+
+    // Function to start auto-hover and clicking
+    function autoHoverAndClick(index = 0) {
+        if (index < elementClicks.length) {
+            const elementClass = elementClicks[index];
+            const element = document.querySelector(`.${elementClass}`);
+            if (element) {
+                moveCursorToElement(element, elementClass, () => {
+                    setTimeout(() => autoHoverAndClick(index + 1), 1900);
+                });
+            } else {
+                // Skip if element not found and continue
+                setTimeout(() => autoHoverAndClick(index + 1), 500);
+            }
+        } else {
+            // Refresh the page after a 3-second delay
+            setTimeout(() => location.reload(), 3000);
+        }
+    }
+
+    // Start hovering and clicking after a short delay
+    setTimeout(() => autoHoverAndClick(), 1900);
+</script>
+
+<style>
+    .custom-cursor {
+        position: absolute;
+        width: 32px; /* Adjust size as needed */
+        height: 32px;
+        background: url("https://thomaspiguet.github.io/prototype-client-space/dist/img/pointer.svg") no-repeat center;
+        background-size: contain;
+        pointer-events: none;
+        transition: left 0.3s ease, top 0.3s ease;
+        z-index: 10000; /* Ensure it's above other elements */
+    }
+
+    /* Unique hover effects for each element */
+    .element1-hover {
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .element2-hover {
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .element3-hover {
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .page-top-hover {
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+</style>
 
 
 
