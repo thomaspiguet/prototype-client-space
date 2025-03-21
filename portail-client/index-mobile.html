@@ -407,7 +407,6 @@
 
 
 
-
 <div class="custom-cursor"></div> <!-- Fake Cursor -->
 
 <script>
@@ -416,7 +415,7 @@
         "element01", 
         "element02",
         "element03", 
-        "page-top00"
+        "page-top0"
     ];
 
     const customCursor = document.querySelector(".custom-cursor"); // Fake cursor
@@ -425,8 +424,8 @@
     function moveCursorToElement(element, elementClass, callback) {
         if (element) {
             const rect = element.getBoundingClientRect();
-            const cursorX = rect.left + rect.width / 2; // Center X
-            const cursorY = rect.top + rect.height / 2; // Center Y
+            const cursorX = rect.left + window.scrollX + rect.width / 2; // Center X (account for scrolling)
+            const cursorY = rect.top + window.scrollY + rect.height / 2; // Center Y
 
             // Move the custom cursor with a delay
             customCursor.style.left = `${cursorX}px`;
@@ -451,17 +450,27 @@
         if (index < elementClicks.length) {
             const elementClass = elementClicks[index];
             const element = document.querySelector(`.${elementClass}`);
+
             if (element) {
-                moveCursorToElement(element, elementClass, () => {
-                    setTimeout(() => autoHoverAndClick(index + 1), 1900);
-                });
+                if (elementClass === "element03") {
+                    // Scroll only for element03
+                    element.scrollIntoView({ behavior: "smooth", block: "center" });
+                    setTimeout(() => {
+                        moveCursorToElement(element, elementClass, () => {
+                            setTimeout(() => autoHoverAndClick(index + 1), 1900);
+                        });
+                    }, 700); // Delay to allow scrolling to complete
+                } else {
+                    moveCursorToElement(element, elementClass, () => {
+                        setTimeout(() => autoHoverAndClick(index + 1), 1900);
+                    });
+                }
             } else {
                 // Skip if element not found and continue
                 setTimeout(() => autoHoverAndClick(index + 1), 500);
             }
         } else {
-            // Refresh the page after a 3-second delay
-            setTimeout(() => location.reload(), 3000);
+            console.log("Auto-hover and clicking sequence completed.");
         }
     }
 
@@ -483,19 +492,19 @@
 
     /* Unique hover effects for each element */
     .element01-hover {
-        background-color: #e2e2e2!important;
+        background-color: #e2e2e2 !important;
     }
 
     .element02-hover {
-        color: #00c0f2!important;
+        color: #00c0f2 !important;
     }
 
     .element03-hover {
-        background-color: #73879c!important;
+        background-color: #73879c !important;
     }
 
     .page-top0-hover {
-        background-color: #00a59e!important;
+        background-color: #00a59e !important;
     }
 </style>
 
