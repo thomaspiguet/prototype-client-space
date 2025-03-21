@@ -451,6 +451,16 @@ body body .navbar-nav > .user-menu > .dropdown-menu .user-body, body body .navba
 #mainNav .navbar-brand {
   width: 300px;
 }
+@media (max-width: 768px) {
+  #mainNav .navbar-brand {
+    width: 200px;
+  }
+  #mainNav .navbar-brand img {
+    vertical-align: middle;
+    border-style: none;
+    height: 30px;
+  }
+}
 
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
   color: #fec503;
@@ -509,6 +519,14 @@ header.banner {
   background-attachment: scroll;
   background-position: top center;
   background-size: cover;
+}
+@media (max-width: 768px) {
+  header.banner {
+    background-attachment: scroll;
+    background-position: bottom right;
+    background-size: cover;
+    height: 675px;
+  }
 }
 
 header.banner .intro-text {

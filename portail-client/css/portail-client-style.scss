@@ -201,6 +201,14 @@ body {
 
     #mainNav .navbar-brand {
         width: 300px;
+        @media (max-width: 768px) {
+            width: 200px;
+            img {
+                vertical-align: middle;
+                border-style: none;
+                height: 30px;
+            }
+        }
     }
 
     #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
@@ -276,6 +284,12 @@ body {
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        @media (max-width: 768px) {
+                background-attachment: scroll;
+                background-position: bottom right;
+                background-size: cover;
+                height: 675px;;     
+        } 
     }
 
     header.banner .intro-text {
