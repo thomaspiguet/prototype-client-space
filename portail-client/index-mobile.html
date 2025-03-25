@@ -412,7 +412,8 @@
         "element01", 
         "element02",
         "element03", 
-        "page-top0"
+        "page-top0", 
+        "navbar-toggler"
     ];
 
     const cursorElement = document.querySelector(".cursor-element"); // Fake cursor
@@ -470,12 +471,12 @@
             console.log("Auto-hover and clicking sequence completed.");
             setTimeout(() => {
                 location.reload(); // Refresh the page after 3 seconds
-            }, 300000);
+            }, 30000);
         }
     }
 
     // Start hovering and clicking after a short delay
-    // setTimeout(() => autoHoverAndClick(), 1900);
+    setTimeout(() => autoHoverAndClick(), 1900);
 </script>
 
 <style>
