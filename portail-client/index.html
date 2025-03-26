@@ -390,63 +390,38 @@
 
 
 <div class="custom-cursor"></div> <!-- Fake Cursor -->
-
 <script>
-    // List of element classes to be hovered and clicked in order
-    const elementClicks = [
-        "element1", 
-        "element2",
-        "element3", 
-        "page-top"
-    ];
+    const elementClicks = ["element1", "element2", "element3", "page-top"];
+    const customCursor = document.querySelector(".custom-cursor");
 
-    const customCursor = document.querySelector(".custom-cursor"); // Fake cursor
-
-    // Function to move the custom cursor
     function moveCursorToElement(element, elementClass, callback) {
-        if (element) {
-            const rect = element.getBoundingClientRect();
-            const cursorX = rect.left + rect.width / 2; // Center X
-            const cursorY = rect.top + rect.height / 2; // Center Y
+        if (!element) return callback(); 
 
-            // Move the custom cursor with a delay
-            customCursor.style.left = `${cursorX}px`;
-            customCursor.style.top = `${cursorY}px`;
+        const rect = element.getBoundingClientRect();
+        customCursor.style.left = `${rect.left + rect.width / 2}px`;
+        customCursor.style.top = `${rect.top + rect.height / 2}px`;
 
-            // Hover effect applied
+        setTimeout(() => {
+            element.classList.add(`${elementClass}-hover`);
             setTimeout(() => {
-                element.classList.add(`${elementClass}-hover`); // Add specific hover class
-                setTimeout(() => {
-                    element.classList.remove(`${elementClass}-hover`); // Remove hover effect
-                    element.click();
-                    callback(); // Continue to next step
-                }, 500); // Hover for 500ms before clicking
-            }, 300); // Cursor move delay
-        } else {
-            callback(); // Skip if element not found
-        }
+                element.classList.remove(`${elementClass}-hover`);
+                element.click();
+                callback();
+            }, 500);
+        }, 300);
     }
 
-    // Function to start auto-hover and clicking
     function autoHoverAndClick(index = 0) {
         if (index < elementClicks.length) {
             const elementClass = elementClicks[index];
             const element = document.querySelector(`.${elementClass}`);
-            if (element) {
-                moveCursorToElement(element, elementClass, () => {
-                    setTimeout(() => autoHoverAndClick(index + 1), 1900);
-                });
-            } else {
-                // Skip if element not found and continue
+            moveCursorToElement(element, elementClass, () => {
                 setTimeout(() => autoHoverAndClick(index + 1), 500);
-            }
-        } else {
-            // Refresh the page after a 3-second delay
+            });
         }
     }
 
-    // Start hovering and clicking after a short delay
-    setTimeout(() => autoHoverAndClick(), 1900);
+    autoHoverAndClick(); // Démarrage immédiat
 </script>
 
 <style>
