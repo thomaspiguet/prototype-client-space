@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">-->
+
+    <title>Portail Client</title>
+
+    <!--<link href="../components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">-->
+    <link href="css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="../dist/css/scss/newstyle.css" rel="stylesheet" />
+
+    <link href="../components/main-header/css/navbar.css" rel="stylesheet">
+    <link href="../components/main-header/intermenu.css" rel="stylesheet" />
+
+    <link href="../dist/css/scss/mixins/fonts.css" rel="stylesheet" />
+
+    <link href="../dist/css/scss/branding.css" rel="stylesheet" />
+    <link href="../components/checkbox/checkbox.css" rel="stylesheet" />
+    <link href="../dist/css/scss/btn.css" rel="stylesheet" />
+
+
+    <link href="css/portail-client-style.css" rel="stylesheet" />
+    <!--<link href="../dist/css/scss/_admin.css" rel="stylesheet" />-->
+
+    <link href="../dist/css/scss/mixins_utility.css" rel="stylesheet" />
+
+    <script>
+
+        $(function () {
+
+            causeRepaintsOn = $("h1, h2, h3, p");
+
+            $(window).resize(function () {
+                causeRepaintsOn.css("z-index", 1);
+            });
+
+        });
+    </script>
+
+    <!--<script>
+        $(document).ready(function () {
+            $("button .profile-btn").click(function (e) {
+                $(".profile-info")
+                    .slideToggle(1000);
+            });
+
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("button .account-creation-btn").click(function (e) {
+                $(".account-creation")
+                    .slideToggle(1000);
+            });
+        });
+
+    </script>-->
+
+
+</head>
+
+
+
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <div class="navbar-brand js-scroll-trigger">
+                <a href="index.html">
+                    <img src="img/BRAND-PORTAIL-CLIENT.svg" />
+                </a>
+            </div>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="client-space.html">CLIENT SPACE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#language">ENGLISH</a>
+                    </li>
+                    <li class="nav-item dropdown user user-menu">
+                        <a aria-expanded="false" class="dropdown-toggle nav-link js-scroll-trigger element" data-toggle="dropdown" href="#">
+                            <span class="hidden-xs">YOUR ACCOUNT</span>
+                        </a>
+                        <ul class="dropdown-menu" id="myModal">
+                            <li class="user-header">
+                                <h4>Registration</h4>
+                            </li>
+                            <li class="user-body account-creation collapsed-box" style="display: none;">
+                                <div class="register-box-body">
+                                    <p class="login-box-msg">Create your user account</p>
+                                    <form action="../../index.html" method="post">
+                                        <div class="form-group has-feedback">
+                                            <input type="text" class="form-control" placeholder="Full name">
+                                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input type="email" class="form-control" placeholder="Email address">
+                                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input type="password" class="form-control" placeholder="Password">
+                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input type="password" class="form-control" placeholder="Confirm password">
+                                            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button onclick="window.location.href='personal-info.html'" type="button" class="profile-btn btn btn-success btn-flat-mobile btn-block-mobile">Sign up</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="user-body profile-info collapsed-box" style="display: none;">
+                                <div class="register-box-body">
+                                    <p class="login-box-msg">Log in</p>
+                                    <form action="../../index.html" method="post">
+                                        <div class="form-group has-feedback">
+                                            <input type="email" class="form-control" placeholder="Email address">
+                                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input type="password" class="form-control" placeholder="Password">
+                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        </div>
+                                        <p class="small">
+                                            <a href="#">Recover your password</a>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button onclick="window.location.href='client-space.html'" type="button" class="profile-btn btn btn-success btn-flat-mobile btn-block-mobile">Log in</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="user-footer">
+                                <div class="">
+                                    <button type="button" data-widget="collapse" class="account-creation-btn account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile element">
+                                        <span class="account-creation-btn">Create your account</span>
+                                    </button>
+                                </div>
+                                <div class="">
+                                    <button type="button" data-widget="collapse" class="account-creation-btn btn btn-default btn-flat-mobile btn-block-mobile disabled">Profile</button>
+                                </div>
+                                <div class="">
+                                    <button type="button" data-widget="collapse" class="profile-btn profile-btn btn btn-success btn-flat-mobile btn-block-mobile">
+                                        <span class="profile-btn">Login</span>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>
