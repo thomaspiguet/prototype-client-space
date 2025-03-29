@@ -365,10 +365,9 @@
 
 
                     <ul class="nav nav-tabs">
-                        <li id="head_tab_1" class="head-tab active"><a href="#tab_1" data-toggle="tab">Factures à payer</a></li>
-                        <li id="head_tab_2" class="head-tab"><a href="#tab_2" data-toggle="tab">Historiques des factures </a></li>
-                        <li id="head_tab_3" class="head-tab"><a href="#tab_3" data-toggle="tab">Historiques des paiements</a></li>
-
+                        <li id="head_tab_1" class="head-tab active"><a href="#tab_1" data-toggle="tab">Invoices to Pay</a></li>
+                        <li id="head_tab_2" class="head-tab"><a href="#tab_2" data-toggle="tab">Invoice History</a></li>
+                        <li id="head_tab_3" class="head-tab"><a href="#tab_3" data-toggle="tab">Payment History</a></li>
                     </ul>
 
 
@@ -400,24 +399,16 @@
                                                 <div class="col-sm-1 data-grid__cell ">
                                                     N<sup>o</sup>
                                                 </div>
-                                                <div class="col-sm-2 data-grid__cell">
-                                                    DATE DÉMISSION
-                                                </div>
-                                                <div class="col-sm-1 data-grid__cell">
-                                                    RÉF.
-                                                </div>
+                                                <div class="col-sm-2 data-grid__cell">DATE ISSUED</div>
+                                                <div class="col-sm-1 data-grid__cell">REF.</div>
                                                 <div class="col-sm-3 data-grid__cell">
                                                     DESCRIPTION
                                                 </div>
                                                 <div class="col-sm-1 data-grid__cell ">
-                                                    MONTANT
+                                                    TOTAL
                                                 </div>
-                                                <div class="col-sm-1 data-grid__cell ">
-                                                    SOLDE
-                                                </div>
-                                                <div class="col-sm-2 data-grid__cell ">
-
-                                                </div>
+                                                <div class="col-sm-1 data-grid__cell">AMOUNT</div>
+                                                <div class="col-sm-1 data-grid__cell">BALANCE</div>
 
                                             </div>
 
@@ -505,10 +496,10 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Qte</th>
-                                                                        <th>Taux</th>
-                                                                        <th>Référence</th>
+                                                                        <th>Rate</th>
+                                                                        <th>Reference</th>
                                                                         <th>Description</th>
-                                                                        <th>Sous-total</th>
+                                                                        <th>Subtotal</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -516,29 +507,29 @@
                                                                         <td>31</td>
                                                                         <td>29.80</td>
                                                                         <td>455-981-221</td>
-                                                                        <td>Séjour hospitalisations juillet</td>
-                                                                        <td>923.72$</td>
+                                                                        <td>hospital stays July</td>
+                                                                        <td>$109.77</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td>90.00</td>
                                                                         <td>247-925-726</td>
-                                                                        <td>Coiffure</td>
-                                                                        <td>&nbsp; 90.00$</td>
+                                                                        <td>Hair</td>
+                                                                        <td>&nbsp;$109.77</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td>30.70</td>
                                                                         <td>735-845-642</td>
                                                                         <td>Cable distribution</td>
-                                                                        <td>&nbsp; 30.74$</td>
+                                                                        <td>&nbsp;$109.77$</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td>55.99</td>
                                                                         <td>422-568-642</td>
-                                                                        <td>Accès internet haute-vitesse</td>
-                                                                        <td>&nbsp; 55.99$</td>
+                                                                        <td>Internet</td>
+                                                                        <td>&nbsp; $109.77</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -550,7 +541,7 @@
                                                     <div class="row">
                                                         <!-- accepted payments column -->
                                                         <div class="col-6">
-                                                            <p class="lead">Mode de paiements:</p>
+                                                            <p class="lead">Payment Methods:</p>
                                                             <img src="../../dist/img/credit/visa.png" alt="Visa">
                                                             <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
                                                             <img src="../../dist/img/credit/american-express.png" alt="American Express">
@@ -560,26 +551,26 @@
                                                         </div>
                                                         <!-- /.col -->
                                                         <div class="col-6">
-                                                            <p class="lead">Échéance: 02/08/2018</p>
+                                                            <p class="lead">Due Date: 08/02/2018</p>
 
                                                             <div class="table-responsive">
                                                                 <table class="table">
                                                                     <tbody>
                                                                         <tr>
                                                                             <th style="width:50%">Sous-total:</th>
-                                                                            <td>&nbsp;1 100.45$</td>
+                                                                            <td>&nbsp;$1,100.45</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>TPS (R119921286)</th>
+                                                                            <th>GST (R119921286)</th>
                                                                             <td>&nbsp; &nbsp; &nbsp; 55.02$</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>TVQ (1008026781)</th>
-                                                                            <td>&nbsp; &nbsp; 109.77$</td>
+                                                                            <th>QST (1008026781)</th>
+                                                                            <td>&nbsp; &nbsp; $109.77</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th>Total:</th>
-                                                                            <td>&nbsp;1 265.24$</td>
+                                                                            <td>&nbsp;$1,265.24</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
