@@ -329,11 +329,12 @@
 
                         <div class="ibox-content" style="min-height: 200px; padding: 52px 20px 20px 20px;">
 
-                            <button type="button" onclick="window.location.href='check-out-personal-info.html'" class="btn btn-success bg-green-disabled disabled element3" style="margin-right: 40px; margin-bottom:20px;">Payer factures<i class="fa fa-angle-right"></i> </button>
+                            <button type="button" onclick="window.location.href='check-out-personal-info.html'" class="btn btn-success bg-green-disabled disabled element3" style="margin-right: 40px; margin-bottom:20px;">Pay bills<i class="fa fa-angle-right"></i> </button>
 
                             <!--<button type="button" onclick="window.location.href='check-out-personal-info.html'" class="btn btn-success bg-green-disabled" style="margin-right: 40px; margin-bottom:20px;">Payer Solde <i class="fa fa-angle-right"></i> </button>-->
 
-                            <button type="button" onclick="window.location.href='deposit-check-out-personal-info.html'" class="btn btn-success bg-green-disabled" style="margin-right: 40px;">Faire un dépôt<i class="fa fa-angle-right"></i> </button>
+                            <button type="button" onclick="window.location.href='deposit-check-out-personal-info.html'" class="btn btn-success bg-green-disabled" style="margin-right: 40px;">
+                                Make a deposit<i class="fa fa-angle-right"></i> </button>
 
                         </div>
 
@@ -365,9 +366,10 @@
 
 
                     <ul class="nav nav-tabs">
-                        <li id="head_tab_1" class="head-tab active"><a href="#tab_1" data-toggle="tab">Factures à payer</a></li>
-                        <li id="head_tab_2" class="head-tab"><a href="#tab_2" data-toggle="tab">Historiques des factures </a></li>
-                        <li id="head_tab_3" class="head-tab"><a href="#tab_3" data-toggle="tab">Historiques des paiements</a></li>
+                        <li id="head_tab_1" class="head-tab active"><a href="#tab_1" data-toggle="tab">Bills to pay</a></li>
+                        <li id="head_tab_2" class="head-tab"><a href="#tab_2" data-toggle="tab">Invoice History </a></li>
+                        <li id="head_tab_3" class="head-tab"><a href="#tab_3" data-toggle="tab">
+                            Payment histories</a></li>
 
                     </ul>
 
@@ -712,10 +714,10 @@ $1265.78
                                                 Lentilles cornéennes multi-focales
                                             </div>
                                             <div class="col-sm-1 data-grid__cell ">
-                                                1587.36$
+                                              $1587.36
                                             </div>
                                             <div class="col-sm-1 data-grid__cell ">
-                                                1587.36$
+                                              $1587.36
                                             </div>
                                             <div class="col-sm-2 data-grid__cell" style=" padding: 0.2%;">
                                                 <button data-toggle="collapse" type="button" class="btn btn-box-tool btn-small-action collapsed" data-target="#collapseOne" href="#collapseOne" aria-expanded="false">
@@ -916,10 +918,10 @@ $1265.78
                                                         <!-- accepted payments column -->
                                                         <div class="col-6">
                                                             <p class="lead">Payment methods:</p>
-                                                            <img src="../../dist/img/credit/visa.png" alt="Visa">
-                                                            <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                                                            <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                                                            <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+                                                  <img src="../dist/img/credit/visa.png" alt="Visa">
+                                                            <img src="../dist/img/credit/mastercard.png" alt="Mastercard">
+                                                            <img src="../dist/img/credit/american-express.png" alt="American Express">
+                                                            <img src="../dist/img/credit/paypal2.png" alt="Paypal">
 
 
                                                         </div>
@@ -1015,7 +1017,7 @@ $1265.78
                                                 Lentilles cornéennes multi-focales
                                             </div>
                                             <div class="col-sm-1 data-grid__cell ">
-                                                1587.36$
+                                              $1587.36
                                             </div>
 
                                             <div class="col-sm-2 data-grid__cell" style=" padding: 0.2%;">
@@ -1223,10 +1225,10 @@ PAYMENT METHOD
                                                         <!-- accepted payments column -->
                                                         <div class="col-6">
                                                             <p class="lead">Payment methods:</p>
-                                                            <img src="../../dist/img/credit/visa.png" alt="Visa">
-                                                            <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                                                            <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                                                            <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+                                                  <img src="../dist/img/credit/visa.png" alt="Visa">
+                                                            <img src="../dist/img/credit/mastercard.png" alt="Mastercard">
+                                                            <img src="../dist/img/credit/american-express.png" alt="American Express">
+                                                            <img src="../dist/img/credit/paypal2.png" alt="Paypal">
 
 
                                                         </div>
@@ -1578,101 +1580,6 @@ PAYMENT METHOD
 
 
 
-
-
-<div class="custom-cursor"></div> <!-- Fake Cursor -->
-
-<script>
-    // List of element classes to be hovered and clicked in order
-    const elementClicks = [
-        "element1", 
-        "element2",
-        "element3", 
-        "page-top"
-    ];
-
-    const customCursor = document.querySelector(".custom-cursor"); // Fake cursor
-
-    // Function to move the custom cursor
-    function moveCursorToElement(element, elementClass, callback) {
-        if (element) {
-            const rect = element.getBoundingClientRect();
-            const cursorX = rect.left + rect.width / 2; // Center X
-            const cursorY = rect.top + rect.height / 2; // Center Y
-
-            // Move the custom cursor with a delay
-            customCursor.style.left = `${cursorX}px`;
-            customCursor.style.top = `${cursorY}px`;
-
-            // Hover effect applied
-            setTimeout(() => {
-                element.classList.add(`${elementClass}-hover`); // Add specific hover class
-                setTimeout(() => {
-                    element.classList.remove(`${elementClass}-hover`); // Remove hover effect
-                    element.click();
-                    callback(); // Continue to next step
-                }, 500); // Hover for 500ms before clicking
-            }, 300); // Cursor move delay
-        } else {
-            callback(); // Skip if element not found
-        }
-    }
-
-    // Function to start auto-hover and clicking
-    function autoHoverAndClick(index = 0) {
-        if (index < elementClicks.length) {
-            const elementClass = elementClicks[index];
-            const element = document.querySelector(`.${elementClass}`);
-            if (element) {
-                moveCursorToElement(element, elementClass, () => {
-                    setTimeout(() => autoHoverAndClick(index + 1), 1900);
-                });
-            } else {
-                // Skip if element not found and continue
-                setTimeout(() => autoHoverAndClick(index + 1), 500);
-            }
-        } else {
-            // Refresh the page after a 3-second delay
-            // setTimeout(() => location.reload(), 3000);
-        }
-    }
-
-    // Start hovering and clicking after a short delay
-    setTimeout(() => autoHoverAndClick(), 1900);
-</script>
-
-<style>
-    .custom-cursor {
-        position: absolute;
-        width: 32px; /* Adjust size as needed */
-        height: 32px;
-        background: url("https://thomaspiguet.github.io/prototype-client-space/dist/img/pointer.svg") no-repeat center;
-        background-size: contain;
-        pointer-events: none;
-        transition: left 0.3s ease, top 0.3s ease;
-        z-index: 10000; /* Ensure it's above other elements */
-    }
-
-    /* Unique hover effects for each element */
-    .element1-hover {
-        border-radius: 4px;
-    }
-
-    .element2-hover {
-        background-color: #e6e9ed !important;
-        transition: background-color 0.3s ease;
-    }
-
-    .element3-hover {
-        background-color: #00bfb6;
-        transition: background-color 0.3s ease;
-    }
-
-    .page-top-hover {
-        background-color: #00bfb6;
-        transition: background-color 0.3s ease;
-    }
-</style>
 
 
 
